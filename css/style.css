@@ -1,11 +1,11 @@
 /*
 * Global
 */
-
 html, * {
  scroll-behavior: smooth;
  font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
- box-sizing: border-box;
+ -webkit-box-sizing: border-box;
+         box-sizing: border-box;
 }
 
 img, audio, video {
@@ -63,4 +63,98 @@ button.button-standard:hover {
   background: black;
   color: white;
   cursor: pointer;
+}
+
+
+
+/*
+* Header
+*/
+
+header {
+  background: black;
+  width: 100%;
+  display: block;
+  overflow: auto;
+}
+
+/* prevent extra whitespace below divs */
+header div {
+  width: 100%;
+  max-width: 100%;
+  line-height: 0;
+}
+
+.header-inner {
+  width: 100%;
+  max-width: 1500px;
+  margin: auto;
+  color: white;
+}
+
+.header-imageWrap {
+  height: 100%;
+  min-height: 300px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/98/Aldrin_Apollo_11_original.jpg');
+  background-size: 100% auto;
+  background-position: top center;
+}
+
+.header-titleWrap {
+  padding: 1rem .5rem;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 800px) {
+  header div {
+    width: 50%;
+  }
+  .header-inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    overflow: hidden;
+  }
+  .header-titleWrap {
+    padding: 0 4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .header-imageWrap {
+    min-height: 550px;
+  }
+}
+
+.header-titleWrap h2, .header-titleWrap p {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  color: lightgray;
+  font-weight: 300;
+  margin: 0.5rem 0;
+}
+
+.header-titleWrap p a {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  color: white;
+  margin-top: 0.5rem;
+  text-decoration: underline;
+}
+
+.header-titleWrap p a:hover, .header-titleWrap p a:active {
+  color: lightgray;
 }
