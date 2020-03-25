@@ -163,11 +163,60 @@ header div {
 /*
 * Sidebar/navigation
 */
+
 .sidebar-wrap {
+  display: block;
+  width: 100%;
+  background: white;
+}
+
+.sidebar {
   max-width: 550px;
   margin: auto;
   display: block;
 }
+
+/* For toggleable mobile sidebar */
+/* .js-enabled .sidebar-wrap {
+  position: fixed;
+  background: white;
+  left: 0;
+  top: 0;
+  height: 100vh;
+} */
+
+@media screen and (min-width: 1000px) {
+  .sidebar-wrap {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 21%;
+  }
+
+  .sidebar {
+    padding: .5rem;
+    padding-top: 0;
+    max-height: 100vh;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: auto;
+    z-index: 1000;
+    position: -webkit-sticky;
+    position: sticky;
+    overflow-y: scroll;
+    border-bottom: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .sidebar-wrap {
+    width: 330px;
+  }
+}
+
 
 .sidebar section {
   border-top: 1.5px solid lightgray;
