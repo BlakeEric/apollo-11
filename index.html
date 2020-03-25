@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
   <header>
     <div class="header-inner">
       <div class="header-titleWrap">
@@ -40,7 +41,7 @@
           </ol>
         </nav>
 
-        <section class="notesSummary" aria-labelledby="notesSummary-title">
+        <section class="notesSummary js-only" style="display: none;" aria-labelledby="notesSummary-title">
           <h3 id="notesSummary-title" class="notesSummary-title sidebar-sectionHeader">My Notes</h3>
           <span class="count" id="note-count">0</span>
           <p id="notes-instructions" class="sidebar-sectionInstructions">Highlight text to add to notes</p>
@@ -50,7 +51,7 @@
           </div>
         </section>
 
-        <section id="queue" class="mediaQueue" aria-labelledby="queue-title">
+        <section id="queue" class="mediaQueue js-only" style="display: none;" aria-labelledby="queue-title">
           <h3 id="queue-title" class="sidebar-sectionHeader">My Media Queue</h3>
           <span class="count" id="media-count">0</span>
           <p id="queue-instructions" class="sidebar-sectionInstructions">Click on media to add...</p>
@@ -63,8 +64,8 @@
     </div>
     <!-- End sidebar -->
 
-    <main>
-      <div class="content" id="content" aria-label="Apollo 11 Launch and Moon Landing">
+    <main aria-label="Apollo 11 Launch and Moon Landing">
+      <div class="content" id="content">
         <h2 id="launch-and-flight-to-lunar-orbit">Launch and flight to lunar orbit</h2>
         <figure class="image">
           <img width="600" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Apollo_11_Launch_-_GPN-2000-000630.jpg/1280px-Apollo_11_Launch_-_GPN-2000-000630.jpg" alt="Photo of Apollo 11 Saturn V space vehicle" />
@@ -287,7 +288,7 @@
       </div>
 
       <!-- toggleable container for note summary -->
-      <section id="notesPopup" class="notesPopup" aria-labelledby="notesPopup-title">
+      <section id="notesPopup" class="notesPopup" style="display: none;" aria-labelledby="notesPopup-title">
         <button class="notes-close notes-toggle button-standard">×</button>
         <h2 id="notesPopup-title" class="notesPopup-title">My Notes</h2>
         <div id="notesPopup-currentNotes">
@@ -296,11 +297,18 @@
       </section>
 
       <!-- flash messages container-->
-      <div id="alert"></div>
+      <div id="alert" style="display: none;"></div>
     </main>
 
   </div>
 
+  <script>
+    // Reveal js-only items
+    document.querySelectorAll(".js-only").forEach(function(item) {
+      item.style.display = "block";
+    });
+
+  </script>
 </body>
 
 </html>
