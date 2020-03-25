@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Apollo 11</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An exploration in accessible, interactive content with vanilla JavaScript">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="header-titleWrap">
+        <h1>Apollo 11</h1>
+        <h2>An exploration in accessible, interactive content with vanilla JavaScript.</h2>
+        <p>Content and images from <a href="https://en.wikipedia.org/wiki/Apollo_11">Wikipedia</a></p>
+        <a class="screen_reader_only" href="#content">Skip to content</a>
+      </div>
+      <div class="header-imageWrap">
+      </div>
+    </div>
+  </header>
+  <div class="content-wrap">
+
+    <!-- Sidebar -->
+    <div class="sidebar-wrap">
+      <aside class="sidebar">
+
+        <nav id="tableOfContents" aria-labelledby="tableOfContents-title">
+          <h3 id="tableOfContents-title" class="sidebar-sectionHeader">Table of Contents</h3>
+          <ol>
+            <li><a href="#launch-and-flight-to-lunar-orbit">Launch and flight to lunar orbit</a></li>
+            <li><a href="#lunar-descent">Lunar descent</a></li>
+            <li><a href="#landing">Landing</a></li>
+            <li><a href="#lunar-surface-operations">Lunar Surface Operations</a></li>
+          </ol>
+        </nav>
+
+        <section class="notesSummary" aria-labelledby="notesSummary-title">
+          <h3 id="notesSummary-title" class="notesSummary-title sidebar-sectionHeader">My Notes</h3>
+          <span class="count" id="note-count">0</span>
+          <p id="notes-instructions" class="sidebar-sectionInstructions">Highlight text to add to notes</p>
+          <div class="sidebar-buttonGroup">
+            <button disabled class="notes-toggle">View Summary</button>
+            <button disabled>Copy to clipboard</button>
+          </div>
+        </section>
+
+        <section id="queue" class="mediaQueue" aria-labelledby="queue-title">
+          <h3 id="queue-title" class="sidebar-sectionHeader">My Media Queue</h3>
+          <span class="count" id="media-count">0</span>
+          <p id="queue-instructions" class="sidebar-sectionInstructions">Click on media to add...</p>
+          <div class="sidebar-buttonGroup">
+            <button disabled>Download</button>
+          </div>
+        </section>
+
+      </aside>
+    </div>
+    <!-- End sidebar -->
+
+    <main>
+      <div class="content" id="content" aria-label="Apollo 11 Launch and Moon Landing">
+        <h2 id="launch-and-flight-to-lunar-orbit">Launch and flight to lunar orbit</h2>
+        <figure class="image">
+          <img width="600" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Apollo_11_Launch_-_GPN-2000-000630.jpg/1280px-Apollo_11_Launch_-_GPN-2000-000630.jpg" alt="Photo of Apollo 11 Saturn V space vehicle" />
+          <figcaption>
+            The Apollo 11 Saturn V space vehicle lifts off with Astronauts Neil A. Armstrong, Michael Collins and Edwin E. Aldrin Jr. at 9:32 a.m. EDT July 16, 1969, from Kennedy Space Center's Launch Complex 39A.
+          </figcaption>
+        </figure>
+        <p>An estimated one million spectators watched the launch of Apollo 11 from the highways and beaches in the vicinity of the launch site. Dignitaries included the Chief of Staff of the United States Army, General William Westmoreland, four
+          cabinet members, 19 state governors, 40 mayors, 60 ambassadors and 200 congressmen. Vice President Spiro Agnew viewed the launch with the former president, Lyndon B. Johnson and his wife Lady Bird Johnson. Around 3,500 media
+          representatives were present. About two-thirds were from the United States; the rest came from 55 other countries. The launch was televised live in 33 countries, with an estimated 25 million viewers in the United States alone. Millions more
+          around the world listened to radio broadcasts. President Richard Nixon viewed the launch
+          from his office in the White House with his NASA liaison officer, Apollo astronaut Frank Borman.
+          Saturn V AS-506 launched Apollo 11 on July 16, 1969, at 13:32:00 UTC (9:32:00 EDT). At 13.2 seconds into the flight, the launch vehicle began to roll into its flight azimuth of 72.058°. Full shutdown of the first-stage engines occurred
+          about 2 minutes and 42 seconds into the mission, followed by separation of the S-IC and ignition of the S-II engines. The second stage engines then cut off and separated at about 9 minutes and 8 seconds, allowing the first ignition of the
+          S-IVB engine a few seconds later.</p>
+        <p>Apollo 11 entered Earth orbit at an altitude of 100.4 nautical miles (185.9 km) by 98.9 nautical miles (183.2 km), twelve minutes into its flight. After one and a half orbits, a second ignition of the S-IVB engine pushed the spacecraft
+          onto its trajectory toward the Moon with the trans-lunar injection (TLI)
+          burn at 16:22:13 UTC. About 30 minutes later, with Collins in the left seat and at the controls, the transposition, docking, and extraction maneuver was performed. This
+          involved separating Columbia from the spent S-IVB stage, turning around, and docking with Eagle still attached to the stage. After the LM was extracted, the combined spacecraft headed for the Moon, while the rocket stage flew on a
+          trajectory past the Moon. This was done to avoid the third stage colliding with the spacecraft, the Earth, or the Moon. A slingshot effect from passing around the Moon threw it into an orbit around the Sun.
+          On July 19 at 17:21:50 UTC, Apollo 11 passed behind the Moon and fired its service propulsion engine to enter lunar orbit. In the thirty orbits that followed, the crew saw passing views of their landing site in the southern Sea of
+          Tranquility about 12 miles (19 km) southwest of the crater Sabine D. The site was selected in part because it had been characterized as relatively flat and smooth by the automated Ranger 8 and Surveyor 5 landers and the Lunar Orbiter
+          mapping
+          spacecraft and unlikely to present major landing or EVA challenges. It lay about 25 kilometers (16 mi) southeast of the Surveyor 5 landing site, and 68 kilometers (42 mi) southwest of Ranger 8's crash site.</p>
+        <h2 id="lunar-descent">Lunar descent</h2>
+        <figure class="image">
+          <img width="600" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Apollo_11_CSM_photographed_from_Lunar_Module_%28AS11-37-5445%29.jpg/1920px-Apollo_11_CSM_photographed_from_Lunar_Module_%28AS11-37-5445%29.jpg"
+            alt="Photo of Columbia space vessel in lunar orbit" />
+          <figcaption>
+            Columbia in lunar orbit, photographed from Eagle
+          </figcaption>
+        </figure>
+        <p>At 12:52:00 UTC on July 20, Aldrin and Armstrong entered Eagle, and began the final preparations for lunar descent. At 17:44:00 Eagle separated from Columbia. Collins, alone aboard Columbia, inspected Eagle as it pirouetted before him to
+          ensure the craft was not damaged, and that the landing gear was correctly deployed. Armstrong exclaimed: "The Eagle has wings!"
+          As the descent began, Armstrong and Aldrin found themselves passing landmarks on the surface two or three seconds early, and reported that they were "long"; they would land miles west of their target point. Eagle was traveling too fast.
+          The problem could have been mascons—concentrations of high mass that could have altered the trajectory. Flight Director Gene Kranz speculated that it could have resulted from extra air pressure in the docking tunnel. Or it could have been
+          the
+          result of Eagle's pirouette maneuver.
+        </p>
+        <figure class="image">
+          <img width="600" alt="Photo Eagle in lunar orbit"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg/1920px-Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg" />
+          <figcaption>
+            Eagle in lunar orbit photographed from Columbia
+          </figcaption>
+        </figure>
+
+        <p>
+          Five minutes into the descent burn, and 6,000 feet (1,800 m) above the surface of the Moon, the LM guidance computer (LGC) distracted the crew with the first of several unexpected 1201 and 1202 program alarms. Inside Mission Control
+          Center, computer engineer Jack Garman told Guidance Officer Steve Bales it was safe to continue the descent, and this was relayed to the crew. The program alarms indicated "executive overflows",
+          meaning the guidance computer could not complete all its tasks in real time and had to postpone some of them. Margaret Hamilton, the Director of Apollo Flight Computer Programming at the MIT Charles Stark Draper Laboratory later recalled:
+          <blockquote>
+            To blame the computer for the Apollo 11 problems is like blaming the person who spots a fire and calls the fire department. Actually, the computer was programmed to do more than recognize error conditions. A complete set of
+            recovery programs was incorporated into the software. The software's action, in this case, was to eliminate lower priority tasks and re-establish the more important ones. The computer, rather than almost forcing an abort, prevented an
+            abort. If the computer hadn't recognized this problem and taken recovery action, I doubt if Apollo 11 would have been the successful Moon landing it was.
+            During the mission, the cause was diagnosed as the rendezvous radar switch being in the wrong position, causing the computer to process data from both the rendezvous and landing radars at the same time. Software engineer Don Eyles
+            concluded in a 2005 Guidance and Control Conference paper that the problem was due to a hardware design bug previously seen during testing of the first uncrewed LM in Apollo 5. Having the rendezvous radar on (so it was warmed up in case
+            of
+            an emergency landing abort) should have been irrelevant to the computer, but an electrical phasing mismatch between two parts of the rendezvous radar system could cause the stationary antenna to appear to the computer as dithering back
+            and
+            forth between two positions, depending upon how the hardware randomly powered up. The extra spurious cycle stealing, as the rendezvous radar updated an involuntary counter, caused the computer alarms.
+          </blockquote>
+        </p>
+
+        <h2 id="landing">Landing</h2>
+        <figure class="image">
+          <img width="600" src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Apollo_11_Landing_Site_%26_West_Crater.png" alt="Photo of landing site relative to West crater" />
+          <figcaption>
+            Landing site relative to West crater
+          </figcaption>
+        </figure>
+        <p>When Armstrong again looked outside, he saw that the computer's landing target was in a boulder-strewn area just north and east of a 300-foot-diameter (91 m) crater (later determined to
+          be West crater), so he took semi-automatic
+          control. Armstrong considered landing short of the boulder field so they could collect geological samples from it, but could not since their horizontal velocity was too high. Throughout the descent, Aldrin called out navigation data to
+          Armstrong, who was busy piloting Eagle. Now 107 feet (33 m) above the surface, Armstrong knew their propellant supply was dwindling and was determined to land at the first possible landing site.
+          Armstrong found a clear patch of ground and maneuvered the spacecraft towards it. As he got closer, now 250 feet (76 m) above the surface, he discovered his new landing site had a crater in it. He cleared the crater and found another
+          patch of level ground. They were now 100 feet (30 m) from the surface, with only 90 seconds of propellant remaining. Lunar dust kicked up by the LM's engine began to impair his ability to determine the spacecraft's motion. Some large rocks
+          jutted out of the dust cloud, and Armstrong focused on them during his descent so he could determine the spacecraft's speed.
+          A light informed Aldrin that at least one of the 67-inch (170 cm) probes hanging from Eagle's footpads had touched the surface a few moments before the landing and he said: "Contact light!" Armstrong was supposed to immediately shut the
+          engine down, as the engineers suspected the pressure caused by the engine's own exhaust reflecting off the lunar surface could make it explode, but he forgot. Three seconds later,
+          <a class="toggle video" href="#eagle-landing" data-media="eagle-landing">Eagle landed</a> and Armstrong shut the engine down. Aldrin
+          immediately said "Okay, engine stop. ACA—out of detent." Armstrong acknowledged: "Out of detent. Auto." Aldrin continued: "Mode control—both auto. Descent engine command override off. Engine arm—off. 413 is in."</p>
+        <figure id="eagle-landing" class="video">
+          <video controls width="550" poster="https://res.cloudinary.com/hwm0fktg3/image/upload/v1580494786/apollo-11/final-approach.png">
+            <source type="video/mp4" src="https://res.cloudinary.com/hwm0fktg3/video/upload/v1580494098/apollo-11/AP11_FINAL_APPROACH.mp4" />
+            <source type="video/ogv" src="https://upload.wikimedia.org/wikipedia/commons/1/19/AP11_FINAL_APPROACH.ogv" />
+            Your browser does not support the <code translate="no">&lt;video&gt;</code> element.
+            Please <a target="_blank" rel="external noopener" href="http://browsehappy.com/">consider upgrading your browser</a>
+            or <a download="" href="https://upload.wikimedia.org/wikipedia/commons/1/19/AP11_FINAL_APPROACH.ogv">download a file</a> for offline listening.
+          </video>
+          <figcaption>
+            (Video) Landing on the Moon, July 20, 1969
+          </figcaption>
+        </figure>
+        <p>ACA was the Attitude Control Assembly—the LM's control stick. Output went to the LGC to command the reaction control system (RCS) jets to fire. "Out of Detent" meant the stick had moved away from its centered position; it was
+          spring-centered like the turn indicator in a car. LGC address 413 contained the variable that indicated the LM had landed.
+          <a class="toggle video" href="#landing-site" data-media="landing-site">Eagle landed at 20:17:40 UTC on Sunday July 20</a> with 216 pounds (98 kg) of usable fuel remaining. Information available to the crew and mission controllers during the
+          landing showed the LM had enough fuel for another 25 seconds of powered
+          flight before an abort without touchdown would have become unsafe, but post-mission analysis showed that the real figure was probably closer to 50 seconds. Apollo 11 landed with less fuel than most subsequent missions, and the astronauts
+          encountered a premature low fuel warning. This was later found to be the result of greater propellant 'slosh' than expected, uncovering a fuel sensor. On subsequent missions, extra anti-slosh baffles were added to the tanks to prevent
+          this. Armstrong acknowledged Aldrin's completion of the post landing checklist with "Engine arm is off", before responding to the CAPCOM, Charles Duke, with the words, "Houston, Tranquility Base here. The Eagle has landed." Armstrong's
+          unrehearsed change of call sign from "Eagle" to "Tranquility Base" emphasized to listeners that landing was complete and successful. Duke mispronounced his reply as he expressed the relief at Mission Control: "Roger, Twan—Tranquility, we
+          copy
+          you on the ground. You got a bunch of guys about to turn blue. We're breathing again. Thanks a lot."</p>
+        <p>Two and a half hours after landing, before preparations began for the EVA, Aldrin radioed to Earth:
+          <blockquote>
+            This is the LM pilot. I'd like to take this opportunity to ask every person listening in, whoever and wherever they may be, to pause for a moment and contemplate the events
+            of the past few hours and to give thanks in his or her own way.
+          </blockquote>
+        </p>
+        <figure id="landing-site" class="video">
+          <video controls width="550" poster="https://res.cloudinary.com/hwm0fktg3/image/upload/v1580495013/apollo-11/landing-site.png">
+            <source type="video/mp4" src="https://res.cloudinary.com/hwm0fktg3/video/upload/v1580494115/apollo-11/A_New_Look_at_the_Apollo_11_Landing_Site.mp4">
+            <source type="video/ogv" src="https://upload.wikimedia.org/wikipedia/commons/c/cc/A_New_Look_at_the_Apollo_11_Landing_Site.ogv">
+            Your browser does not support the <code translate="no">&lt;video&gt;</code> element.
+            Please <a target="_blank" rel="external noopener" href="http://browsehappy.com/">consider upgrading your browser</a>
+            or <a download="" href="https://res.cloudinary.com/hwm0fktg3/video/upload/v1580494115/apollo-11/A_New_Look_at_the_Apollo_11_Landing_Site.mp4">download a file</a> for offline viewing.
+          </video>
+          <figcaption>
+            (Video) 3-D view from the Lunar Reconnaissance Orbiter (LRO) of Apollo 11 landing site
+          </figcaption>
+        </figure>
+        <p>He then took communion privately. At this time NASA was still fighting a lawsuit brought by atheist Madalyn Murray O'Hair (who had objected to the Apollo 8 crew reading from the Book of Genesis) demanding that their astronauts refrain
+          from broadcasting religious activities while in space. As such, Aldrin chose to refrain from directly mentioning taking communion on the Moon. Aldrin was an elder at the Webster Presbyterian Church, and his communion kit was prepared by the
+          pastor of the church, Dean Woodruff. Webster Presbyterian possesses the chalice used on the Moon and commemorates the event each year on the Sunday closest to July 20. The schedule for the mission called for the astronauts to follow the
+          landing with a five-hour sleep period, but they chose to begin preparations for the EVA early, thinking they would be unable to sleep.</p>
+        <h2 id="lunar-surface-operations">Lunar surface operations</h2>
+        <figure class="image">
+          <img width="600" src="https://upload.wikimedia.org/wikipedia/commons/1/13/Armstrong_on_Moon_%28As11-40-5886%29_%28cropped%29.jpg" alt="A photograph of Neil Armstrong taken by Buzz Aldrin" />
+          <figcaption>
+            A photograph of Neil Armstrong taken by Buzz Aldrin. This is one of the few photographs of Armstrong on the lunar surface; most of the time he held the camera.
+          </figcaption>
+        </figure>
+        <p>Preparations for Neil Armstrong and Buzz Aldrin to walk on the Moon began at 23:43. These took longer than expected; three and a half hours instead of two. During training on Earth, everything required had been neatly laid out in
+          advance, but on the Moon the cabin contained a large number of other items as well, such as checklists, food packets, and tools. Six hours and thirty-nine minutes after landing Armstrong and Aldrin were ready to go outside, and Eagle was
+          depressurized. Eagle's hatch was opened at 02:39:33. Armstrong initially had some difficulties squeezing through the hatch with his portable life support system (PLSS). Some of the highest heart rates recorded from Apollo astronauts
+          occurred
+          during LM egress and ingress. At 02:51 Armstrong began his descent to the lunar surface. The remote control unit on his chest kept him from seeing his feet. Climbing down the nine-rung ladder, Armstrong pulled a D-ring to deploy the modular
+          equipment stowage assembly (MESA) folded against Eagle's side and activate the TV camera.
+          Apollo 11 used slow-scan television (TV) incompatible with broadcast TV, so it was displayed on a special monitor, and a conventional TV camera viewed this monitor, significantly reducing the quality of the picture. The signal was
+          received at Goldstone in the United States, but with better fidelity by Honeysuckle Creek Tracking Station near Canberra in Australia. Minutes later the feed was switched to the more sensitive Parkes radio telescope in Australia. Despite
+          some
+          technical and weather difficulties, ghostly black and white images of the first lunar EVA were received and broadcast to at least 600 million people on Earth. Copies of this video in broadcast format were saved and are widely available,
+          but recordings of the original slow scan source transmission from the lunar surface were likely destroyed during routine magnetic tape re-use at NASA.</p>
+        <p>While still on the ladder, Armstrong uncovered a plaque mounted on the LM descent stage bearing two drawings of Earth (of the Western and Eastern Hemispheres), an inscription, and signatures of the astronauts and President Nixon. The
+          inscription read:</p>
+        <blockquote>
+          Here men from the planet Earth first set foot upon the Moon July 1969, A.D. We came in peace for all mankind.
+        </blockquote>
+        <figure class="image">
+          <img width="600" src="https://upload.wikimedia.org/wikipedia/commons/5/57/Apollo_11_plaque_closeup_on_Moon.jpg"
+            alt="Photo of a plaque with writing 'Here men from the planet Earth first set foot upon the Moon July 1969, A.D. We came in peace for all mankind'" />
+          <figcaption>
+            The plaque left on the ladder of Eagle
+          </figcaption>
+        </figure>
+        <p>At the behest of the Nixon administration to add a reference to God, NASA included the vague date as a reason to include A.D., which stands for Anno Domini, "in the year of our Lord" (although it should have been placed before the
+          year, not after). After describing the surface dust as "very fine-grained" and "almost like a powder",
+          at 02:56:15, six and a half hours after landing, Armstrong stepped off Eagle's footpad and declared:
+          <a class="toggle audio" href="#one-small-step" data-media="one-small-step">
+            "That's one small step for [a] man, one giant leap for mankind."
+          </a>
+        </p>
+        <figure id="one-small-step" class="audio">
+          <audio controls width="550px">
+            <source src="https://res.cloudinary.com/hwm0fktg3/video/upload/v1580493958/apollo-11/Frase_de_Neil_Armstrong.mp3" type="audio/mp3">
+            <source src="https://upload.wikimedia.org/wikipedia/commons/4/48/Frase_de_Neil_Armstrong.ogg" type="audio/ogg">
+            Your browser does not support the <code translate="no">&lt;audio&gt;</code> element.
+            Please <a target="_blank" rel="external noopener" href="http://browsehappy.com/">consider upgrading your browser</a>
+            or <a download="" href="https://res.cloudinary.com/hwm0fktg3/video/upload/v1580493958/apollo-11/Frase_de_Neil_Armstrong.mp3">download a file</a> for offline listening.
+          </audio>
+          <figcaption>
+            (Audio) That's one small step...
+          </figcaption>
+        </figure>
+        <p>
+          Armstrong intended to say "That's one small step for a man", but the word "a" is not audible in the transmission, and thus was not initially reported by most observers of the live broadcast. When later asked about his quote, Armstrong
+          said he believed he said "for a man", and subsequent printed versions of the quote included the "a" in square brackets. One explanation for the absence may be that his accent caused him to slur the words "for a" together; another is the
+          intermittent nature of the audio and video links to Earth, partly because of storms near Parkes Observatory. More recent digital analysis of the tape claims to reveal the "a" may have been spoken but obscured by static.
+          About seven minutes after stepping onto the Moon's surface, Armstrong collected a contingency soil sample using a sample bag on a stick. He then folded the bag and tucked it into a pocket on his right thigh. This was to guarantee there
+          would be some lunar soil brought back in case an emergency required the astronauts to abandon the EVA and return to the LM. Twelve minutes after the sample was collected, he removed the TV camera from the MESA and made a panoramic
+          sweep, then mounted it on a tripod. The TV camera cable remained partly coiled and presented a tripping hazard throughout the EVA. Still photography was accomplished with a Hasselblad camera which could be operated hand held or mounted on
+          Armstrong's Apollo space suit. Aldrin joined Armstrong on the surface. He described the view with the simple phrase: "Magnificent desolation."
+          Armstrong said moving in the lunar gravity, one-sixth of Earth's, was "even perhaps easier than the simulations ... It's absolutely no trouble to walk around." Aldrin joined him on the surface and tested methods for moving around,
+          including two-footed kangaroo hops. The PLSS backpack created a tendency to tip backward, but neither astronaut had serious problems maintaining balance. Loping became the preferred method of movement. The astronauts reported that they
+          needed
+          to plan their movements six or seven steps ahead. The fine soil was quite slippery. Aldrin remarked that moving from sunlight into Eagle's shadow produced no temperature change inside the suit, but the helmet was warmer in sunlight, so he
+          felt cooler in shadow. The MESA failed to provide a stable work platform and was in shadow, slowing work somewhat. As they worked, the moonwalkers kicked up gray dust which soiled the outer part of their suits.</p>
+        <figure class="image">
+          <img width="600" src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Buzz_salutes_the_U.S._Flag.jpg" alt="Photo of an astronaut saluting United States flag on the lunar surface" />
+          <figcaption>
+            Aldrin salutes the deployed United States flag on the lunar surface
+          </figcaption>
+        </figure>
+
+        <p>
+          The astronauts planted the Lunar Flag Assembly containing a flag of the United States on the lunar surface, in clear view of the TV camera. Aldrin remembered, "Of all the jobs I had to do on the Moon the one I wanted to go the smoothest
+          was the flag raising."But the astronauts struggled with the telescoping rod and could only jam the pole a couple of inches (5 cm) into the hard lunar surface. Aldrin was afraid it might topple in front of TV viewers. But he gave "a crisp
+          West Point salute”. Before Aldrin could take a photo of Armstrong with the flag, President Richard Nixon spoke to them through a telephone-radio transmission which Nixon called "the most historic phone call ever made from the White House."
+          Nixon originally had a long speech prepared to read during the phone call, but Frank Borman, who was at the White House as a NASA liaison during Apollo 11, convinced Nixon to keep his words brief.</p>
+        <p>Nixon: Hello, Neil and Buzz. I'm talking to you by telephone from the Oval Room at the White House. And this certainly has to be the most historic telephone call ever made. I just can't tell you how proud we all are of what you've
+          done. For every American, this has to be the proudest day of our lives. And for people all over the world, I am sure they too join with Americans in recognizing what an immense feat this is. Because of what you have done, the heavens have
+          become a part of man's world. And as you talk to us from the Sea of Tranquility, it inspires us to redouble our efforts to bring peace and tranquility to Earth. For one priceless moment in the whole history of man, all the people on this
+          Earth are truly one: one in their pride in what you have done, and one in our prayers that you will return safely to Earth. </p>
+        <p>Armstrong: Thank you, Mr. President. It's a great honor and privilege for us to be here, representing not only the United States, but men of peace of all nations, and with interest and curiosity, and men with a vision for the future.
+          It's an honor for us to be able to participate here today.
+          They deployed the EASEP, which included a passive seismic experiment package used to measure moonquakes and a retroreflector array used for the lunar laser ranging experiment. Then Armstrong walked 196 feet (60 m) from the LM to snap
+          photos at the rim of Little West Crater while Aldrin collected two core samples. He used the geologist's hammer to pound in the tubes—the only time the hammer was used on Apollo 11—but was unable to penetrate more than 6 inches (15 cm)
+          deep.
+          The astronauts then collected rock samples using scoops and tongs on extension handles. Many of the surface activities took longer than expected, so they had to stop documenting sample collection halfway through the allotted 34 minutes.
+          Aldrin shoveled 6 kilograms (13 lb) of soil into the box of rocks in order to pack them in tightly. Two types of rocks were found in the geological samples: basalt and breccia. Three new minerals were discovered in the rock samples
+          collected
+          by the astronauts: armalcolite, tranquillityite, and pyroxferroite. Armalcolite was named after Armstrong, Aldrin, and Collins. All have subsequently been found on Earth.</p>
+        <figure class="image">
+          <img width="600" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Apollo_11_bootprint.jpg" alt="Photo of a bootprint on lunar surface" />
+          <figcaption>
+            Aldrin's bootprint; part of an experiment to test the properties of the lunar regolith
+          </figcaption>
+        </figure>
+        <p>
+          Mission Control used a coded phrase to warn Armstrong his metabolic rates were high, and that he should slow down. He was moving rapidly from task to task as time ran out. As metabolic rates remained generally lower than expected for
+          both astronauts throughout the walk, Mission Control granted the astronauts a 15-minute extension. In a 2010 interview, Armstrong explained that NASA limited the first moonwalk's time and distance because there was no empirical proof of how
+          much cooling water the astronauts' PLSS backpacks would consume to handle their body heat generation while working on the Moon.</p>
+      </div>
+
+      <!-- toggleable container for note summary -->
+      <section id="notesPopup" class="notesPopup">
+        <button class="notes-close notes-toggle button-standard">×</button>
+        <div id="notesPopup-currentNotes">
+        </div>
+        <button class="button-standard copy-to-clipboard">Copy notes to clipboard</button>
+      </section>
+
+      <!-- flash messages container-->
+      <div id="alert"></div>
+    </main>
+
+  </div>
+
+</body>
+
+</html>
