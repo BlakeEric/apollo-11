@@ -1,0 +1,66 @@
+/*
+* Global
+*/
+
+html, * {
+ scroll-behavior: smooth;
+ font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+ box-sizing: border-box;
+}
+
+img, audio, video {
+  width: 100%;
+  max-width: 800px;
+}
+
+h1 {
+  font-size: 50px;
+  margin: 0;
+}
+
+h2 {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-weight: 500;
+}
+
+.screen_reader_only {
+  visibility: hidden;
+  position: absolute;
+}
+
+figure {
+  margin: auto;
+  background: white;
+  overflow: hidden;
+}
+
+figure img {
+  border-radius: 3px;
+}
+
+figure.video, figure.audio {
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+
+figcaption {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 300;
+  padding: .5rem 0;
+}
+
+button.button-standard {
+  border: none;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 3px;
+  line-height: 1.5rem;
+}
+
+button.button-standard:hover {
+  background: black;
+  color: white;
+  cursor: pointer;
+}
