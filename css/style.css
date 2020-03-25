@@ -1,3 +1,4 @@
+
 /*
 * Global
 */
@@ -157,4 +158,184 @@ header div {
 
 .header-titleWrap p a:hover, .header-titleWrap p a:active {
   color: lightgray;
+}
+
+/*
+* Sidebar/navigation
+*/
+.sidebar-wrap {
+  max-width: 550px;
+  margin: auto;
+  display: block;
+}
+
+.sidebar section {
+  border-top: 1.5px solid lightgray;
+  margin: 2rem 0;
+}
+
+.sidebar-sectionHeader {
+  display: inline-block;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-weight: 500;
+  padding-left: .5rem;
+}
+
+.sidebar .count {
+  position: relative;
+  right: 3px;
+  bottom: 10px;
+  height: 16px;
+  width: 16px;
+  text-align: center;
+  line-height: 16px;
+  font-size: 12px;
+  background: black;
+  color: white;
+  border-radius: 50%;
+  display: inline-block;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+}
+
+.sidebar-sectionInstructions {
+  padding-left: .5rem;
+  margin-top: 0;
+  color: gray;
+}
+
+/* Table of contents */
+.sidebar nav {
+  max-width: 550px;
+  margin: auto;
+  margin-top: 3rem;
+  padding: 0 .5rem;
+}
+
+.sidebar nav .sidebar-sectionHeader {
+  padding-left: 0;
+  margin: 0;
+}
+
+.sidebar nav ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* for scrollspy */
+.sidebar nav .active a {
+  font-weight: bold;
+}
+
+.sidebar nav .active a:before {
+  content: " - ";
+  display: inline;
+}
+
+/* Media queue */
+.sidebar figure {
+  background-color: #eaeaea;
+  border-radius: 3px;
+  padding-bottom: .5rem;
+}
+
+.sidebar figure figcaption {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+.sidebar figure button {
+  margin-right: .5rem;
+  float: right;
+}
+
+.sidebar .mediaQueue figure video, .sidebar .mediaQueue figure audio {
+  max-height: 0;
+  display: none;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.sidebar .mediaQueue figure.is-playing video,
+.sidebar .mediaQueue figure.is-playing audio {
+  max-height: 300px;
+  display: block;
+}
+
+.sidebar-buttonGroup {
+  padding: 0 .25rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar-buttonGroup button {
+  background: black;
+  min-width: 100%;
+  color: white;
+  border: black;
+  padding: .5rem;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+}
+
+.sidebar-buttonGroup button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+/*
+* Main content
+*/
+
+.content-wrap {
+  position: relative;
+}
+
+main .content {
+  max-width: 550px;
+  display: block;
+  margin: auto;
+  padding: 1rem .5rem;
+  font-size: 18px;
+}
+
+main .content *::-moz-selection {
+  background: #07e3ba; /* WebKit/Blink Browsers */
+}
+
+main .content *::selection {
+  background: #07e3ba; /* WebKit/Blink Browsers */
+}
+
+main .content *::-moz-selection {
+  background: #07e3ba; /* Gecko Browsers */
+}
+
+main .content p {
+  color: #424242;
+  line-height: 1.75;
+}
+
+main blockquote {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1.75rem;
+  padding-left: 10px;
+  border-left: 3px solid #424242;
+  line-height: 1.75;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 18px;
+}
+
+@media screen and (min-width: 600px) {
+  main blockquote {
+    margin-left: -20px;
+    padding-left: 20px;
+  }
+}
+
+/* Highlighted notes within content */
+main span.highlighted {
+  background: #00ffcf;
+  cursor: pointer;
 }
