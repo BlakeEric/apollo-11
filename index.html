@@ -64,7 +64,7 @@
     <!-- End sidebar -->
 
     <!-- Toggle sidebar button -->
-    <button id="mobile-nav-toggle" onclick="toggleMobileNav()" class="js-only button-standard" style="display: none;">
+    <button id="mobile-nav-toggle" class="js-only button-standard" style="display: none;">
       <div class="icon-bar"></div>
       <div class="icon-bar"></div>
       <div class="icon-bar"></div>
@@ -308,22 +308,11 @@
 
   </div>
 
-  <script>
-    // Reveal js-only items
-    document.querySelectorAll(".js-only").forEach(function(item) {
-      item.style.display = "block";
-    });
+  <script src="js/events.min.js"></script>
+  <script src="js/gumshoe.min.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/index.js"></script>
 
-    document.querySelector('body').classList.add('js-enabled');
-
-    function toggleMobileNav() {
-      console.log("funciton envoked")
-      var container = document.getElementById("sidebar-wrap");
-      container.classList.toggle('active')
-      document.body.classList.toggle('no-scroll');
-    }
-
-  </script>
 </body>
 
 </html>

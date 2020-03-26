@@ -13,6 +13,12 @@ body.no-scroll {
   overflow-y: hidden;
 }
 
+@media screen and (min-width: 1000px) {
+  body.no-scroll {
+    overflow-y: scroll;
+  }
+}
+
 img, audio, video {
   width: 100%;
   max-width: 800px;
