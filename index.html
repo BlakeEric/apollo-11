@@ -27,7 +27,7 @@
   <div class="content-wrap">
 
     <!-- Sidebar -->
-    <div class="sidebar-wrap">
+    <div id="sidebar-wrap" class="sidebar-wrap">
       <aside class="sidebar">
 
         <nav id="tableOfContents" aria-labelledby="tableOfContents-title">
@@ -62,6 +62,13 @@
       </aside>
     </div>
     <!-- End sidebar -->
+
+    <!-- Toggle sidebar button -->
+    <button id="mobile-nav-toggle" onclick="toggleMobileNav()" class="js-only button-standard" style="display: none;">
+      <div class="icon-bar"></div>
+      <div class="icon-bar"></div>
+      <div class="icon-bar"></div>
+    </button>
 
     <main aria-label="Apollo 11 Launch and Moon Landing">
       <div class="content" id="content">
@@ -308,6 +315,13 @@
     });
 
     document.querySelector('body').classList.add('js-enabled');
+
+    function toggleMobileNav() {
+      console.log("funciton envoked")
+      var container = document.getElementById("sidebar-wrap");
+      container.classList.toggle('active')
+      document.body.classList.toggle('no-scroll');
+    }
 
   </script>
 </body>
