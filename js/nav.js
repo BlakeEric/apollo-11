@@ -4,7 +4,10 @@ const nav = (function(){
 
   var isActive = false;
 
-  // add appropriate classes to body and sidebar depending on whether sidebar is active
+  /**
+   * add appropriate classes to body element and sidebar container
+   * depending on whether sidebar is active
+  */
   var setClasses = function() {
     if (isActive) {
       navContainer.classList.add('active')
@@ -15,25 +18,33 @@ const nav = (function(){
     }
   }
 
-  // Open the mobile nav
+  /**
+   * Open the mobile nav
+  */
   var open = function() {
     isActive = true;
     setClasses()
   }
 
-  // Close the mobile nav
+  /**
+   * Close the mobile nav
+  */
   var close = function() {
     isActive = false;
     setClasses()
   }
 
-  // Close the mobile nav if open, and vice versa
+  /**
+   * Close the mobile nav if open, and vice versa
+  */
   var toggle = function() {
     isActive = !isActive;
     setClasses()
   }
 
-  // // Initialize event handlers and scrollspy
+  /**
+   * Initialize event handlers and scrollspy
+  */
   var init = function() {
     //enable scrollspy
     var spy = new Gumshoe('#tableOfContents a');
