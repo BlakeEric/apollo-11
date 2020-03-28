@@ -7,6 +7,7 @@ function init() {
   document.querySelector('body').classList.add('js-enabled');
 
   nav.init();
+  media.init();
 }
 
 init();

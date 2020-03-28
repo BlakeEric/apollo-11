@@ -50,12 +50,13 @@
           </div>
         </section>
 
-        <section id="queue" class="mediaQueue js-only" style="display: none;" aria-labelledby="queue-title">
+        <section class="mediaQueue js-only" style="display: none;" aria-labelledby="queue-title">
           <h3 id="queue-title" class="sidebar-sectionHeader">My Media Queue</h3>
           <span class="count" id="media-count">0</span>
           <p id="queue-instructions" class="sidebar-sectionInstructions">Click on media to add...</p>
+          <div id="queue"></div>
           <div class="sidebar-buttonGroup">
-            <button disabled>Download</button>
+            <button id="download-media" disabled>Download</button>
           </div>
         </section>
 
@@ -149,7 +150,7 @@
           jutted out of the dust cloud, and Armstrong focused on them during his descent so he could determine the spacecraft's speed.
           A light informed Aldrin that at least one of the 67-inch (170 cm) probes hanging from Eagle's footpads had touched the surface a few moments before the landing and he said: "Contact light!" Armstrong was supposed to immediately shut the
           engine down, as the engineers suspected the pressure caused by the engine's own exhaust reflecting off the lunar surface could make it explode, but he forgot. Three seconds later,
-          <a class="toggle video" href="#eagle-landing" data-media="eagle-landing">Eagle landed</a> and Armstrong shut the engine down. Aldrin
+          <a class="toggleMedia video" href="#eagle-landing" data-media="eagle-landing">Eagle landed</a> and Armstrong shut the engine down. Aldrin
           immediately said "Okay, engine stop. ACA—out of detent." Armstrong acknowledged: "Out of detent. Auto." Aldrin continued: "Mode control—both auto. Descent engine command override off. Engine arm—off. 413 is in."</p>
         <figure id="eagle-landing" class="video">
           <video controls width="550" poster="https://res.cloudinary.com/hwm0fktg3/image/upload/v1580494786/apollo-11/final-approach.png">
@@ -165,7 +166,8 @@
         </figure>
         <p>ACA was the Attitude Control Assembly—the LM's control stick. Output went to the LGC to command the reaction control system (RCS) jets to fire. "Out of Detent" meant the stick had moved away from its centered position; it was
           spring-centered like the turn indicator in a car. LGC address 413 contained the variable that indicated the LM had landed.
-          <a class="toggle video" href="#landing-site" data-media="landing-site">Eagle landed at 20:17:40 UTC on Sunday July 20</a> with 216 pounds (98 kg) of usable fuel remaining. Information available to the crew and mission controllers during the
+          <a class="toggleMedia video" href="#landing-site" data-media="landing-site">Eagle landed at 20:17:40 UTC on Sunday July 20</a> with 216 pounds (98 kg) of usable fuel remaining. Information available to the crew and mission controllers
+          during the
           landing showed the LM had enough fuel for another 25 seconds of powered
           flight before an abort without touchdown would have become unsafe, but post-mission analysis showed that the real figure was probably closer to 50 seconds. Apollo 11 landed with less fuel than most subsequent missions, and the astronauts
           encountered a premature low fuel warning. This was later found to be the result of greater propellant 'slosh' than expected, uncovering a fuel sensor. On subsequent missions, extra anti-slosh baffles were added to the tanks to prevent
@@ -227,7 +229,7 @@
         <p>At the behest of the Nixon administration to add a reference to God, NASA included the vague date as a reason to include A.D., which stands for Anno Domini, "in the year of our Lord" (although it should have been placed before the
           year, not after). After describing the surface dust as "very fine-grained" and "almost like a powder",
           at 02:56:15, six and a half hours after landing, Armstrong stepped off Eagle's footpad and declared:
-          <a class="toggle audio" href="#one-small-step" data-media="one-small-step">
+          <a class="toggleMedia audio" href="#one-small-step" data-media="one-small-step">
             "That's one small step for [a] man, one giant leap for mankind."
           </a>
         </p>
@@ -311,6 +313,7 @@
   <script src="js/events.min.js"></script>
   <script src="js/gumshoe.min.js"></script>
   <script src="js/nav.js"></script>
+  <script src="js/media.js"></script>
   <script src="js/index.js"></script>
 
 </body>
