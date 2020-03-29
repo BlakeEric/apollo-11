@@ -45,7 +45,7 @@
           <span class="count" id="note-count">0</span>
           <p id="notes-instructions" class="sidebar-sectionInstructions">Highlight text to add to notes</p>
           <div class="sidebar-buttonGroup">
-            <button disabled class="notes-toggle">View Summary</button>
+            <button class="notes-summary-toggle">View Summary</button>
             <button disabled>Copy to clipboard</button>
           </div>
         </section>
@@ -56,7 +56,7 @@
           <p id="queue-instructions" class="sidebar-sectionInstructions">Click on media to add...</p>
           <div id="queue"></div>
           <div class="sidebar-buttonGroup">
-            <button id="download-media" disabled>Download</button>
+            <button id="download-media" disabled="disabled">Download</button>
           </div>
         </section>
 
@@ -296,10 +296,10 @@
       </div>
 
       <!-- toggleable container for note summary -->
-      <section id="notesPopup" class="notesPopup" style="display: none;" aria-labelledby="notesPopup-title">
-        <button class="notes-close notes-toggle button-standard">×</button>
-        <h2 id="notesPopup-title" class="notesPopup-title">My Notes</h2>
-        <div id="notesPopup-currentNotes">
+      <section id="notesSummary-window" class="notesSummary-window" style="display: none;" aria-labelledby="notesSummary-window-title">
+        <button class="notes-close notes-summary-toggle button-standard">×</button>
+        <h2 id="notesSummary-window-title" class="notesSummary-window-title">My Notes</h2>
+        <div id="notesSummary-window-currentNotes">
         </div>
         <button class="button-standard copy-to-clipboard">Copy notes to clipboard</button>
       </section>
@@ -314,6 +314,7 @@
   <script src="js/gumshoe.min.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/media.js"></script>
+  <script src="js/notes.js"></script>
   <script src="js/index.js"></script>
 
 </body>

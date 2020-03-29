@@ -8,6 +8,7 @@ function init() {
 
   nav.init();
   media.init();
+  notes.init();
 }
 
 init();
