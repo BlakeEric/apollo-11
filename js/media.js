@@ -1,17 +1,13 @@
 const media = (function(){
 
-  // Intialize an empty queue that will be updated using event handlers
-  var state = {
-    queue: [],
-    mediaData: {}
-  }
-
   /**
    * remove audio/video media from the dom and save in state.mediaData for later
   */
   function pluckMediaFromDom() {
 
     const mediaElems = document.querySelectorAll('figure.video, figure.audio')
+
+    const mediaData = {}
 
     mediaElems.forEach(function(item) {
 
@@ -34,8 +30,10 @@ const media = (function(){
       pauseButton.classList.add("pause-media", "button-standard")
       item.appendChild(pauseButton)
 
-      state.mediaData[item.getAttribute('id')] = item;
+      mediaData[item.getAttribute('id')] = item;
     })
+
+    state.set("mediaData", mediaData)
 
   }
 
@@ -90,18 +88,17 @@ const media = (function(){
     var instructions = document.getElementById('queue-instructions');
     var downloadButton = document.getElementById('download-media');
 
+    state.toggleStudyGuideDownloadButton();
 
     countSpan.innerHTML = state.queue.length;
     container.innerHTML = "";
 
     if (state.queue.length == 0) {
       instructions.style.display = 'block';
-      downloadButton.setAttribute('disabled', 'disabled');
       return;
     }
 
     // If we make it this far there are items in the queue
-    downloadButton.removeAttribute('disabled');
     instructions.style.display = 'none';
 
     state.queue.forEach(function(item){
@@ -130,9 +127,7 @@ const media = (function(){
     }
 
     // Add to queue array
-    state.queue.push(item);
-
-    // displayAlert("Added to queue")
+    state.set("queue", state.queue.concat(item))
 
     renderQueue();
   }
@@ -147,12 +142,15 @@ const media = (function(){
 
     item.classList.remove('is-playing')
 
-    state.queue = state.queue.filter(function(item) {
+    queue = state.queue.filter(function(item) {
       return item.id !== id;
     });
 
+    state.set("queue", queue)
+
     renderQueue()
   }
+
 
   /**
    * initialize event handlers
@@ -160,6 +158,8 @@ const media = (function(){
   var init = function() {
 
     pluckMediaFromDom();
+
+    renderQueue()
 
     events.on('click', '.toggleMedia', function (event) {
       event.preventDefault()
@@ -184,7 +184,13 @@ const media = (function(){
       var id = event.target.parentNode.getAttribute("id")
       pauseItem(id)
     });
+
+    events.on('click', '#download-media', function (event) {
+      event.preventDefault()
+      download();
+    });
   }
+
 
   // expose variables
   return {

@@ -45,8 +45,8 @@
           <span class="count" id="note-count">0</span>
           <p id="notes-instructions" class="sidebar-sectionInstructions">Highlight text to add to notes</p>
           <div class="sidebar-buttonGroup">
-            <button class="notes-summary-toggle">View Summary</button>
-            <button disabled>Copy to clipboard</button>
+            <button id="notes-summary-toggle" class="notes-summary-toggle" disabled="disabled">View Summary</button>
+            <!-- <button disabled>Copy to clipboard</button> -->
           </div>
         </section>
 
@@ -55,8 +55,14 @@
           <span class="count" id="media-count">0</span>
           <p id="queue-instructions" class="sidebar-sectionInstructions">Click on media to add...</p>
           <div id="queue"></div>
-          <div class="sidebar-buttonGroup">
+          <!-- <div class="sidebar-buttonGroup">
             <button id="download-media" disabled="disabled">Download</button>
+          </div> -->
+        </section>
+
+        <section class="js-only" style="display: none;" aria-label="Generate a stidy guide">
+          <div class="sidebar-buttonGroup">
+            <button id="download-studyGuide" class="download-studyGuide" disabled="disabled">Generate Study Guide</button>
           </div>
         </section>
 
@@ -301,7 +307,7 @@
         <h2 id="notesSummary-window-title" class="notesSummary-window-title">My Notes</h2>
         <div id="notesSummary-window-currentNotes">
         </div>
-        <button class="button-standard copy-to-clipboard">Copy notes to clipboard</button>
+        <button class="button-standard download-studyGuide">Generate Study Guide</button>
       </section>
 
       <!-- flash messages container-->
@@ -311,7 +317,9 @@
   </div>
 
   <script src="js/events.min.js"></script>
+  <script src="js/download.min.js"></script>
   <script src="js/gumshoe.min.js"></script>
+  <script src="js/state.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/media.js"></script>
   <script src="js/notes.js"></script>

@@ -1,13 +1,8 @@
 const notes = (function(){
 
-
   // Initialize vars
   var notesSummaryContainer = document.getElementById("notesSummary-window");
   var countSpan = document.getElementById('note-count');
-  var state = {
-    notes: [],
-  }
-
 
   /**
    * display popover with buttons
@@ -43,13 +38,23 @@ const notes = (function(){
   */
   var renderNotes = function () {
 
+    state.toggleStudyGuideDownloadButton()
+
+    // render note count
+    countSpan.innerHTML = state.notes.length;
+
+    if (state.notes.length === 0) {
+      document.getElementById('notes-summary-toggle').setAttribute('disabled', 'disabled');
+    } else {
+      document.getElementById('notes-summary-toggle').removeAttribute('disabled');
+    }
+
+
     var container = document.getElementById('notesSummary-window-currentNotes');
     container.innerHTML = '';
 
     state.notes.forEach(function(item) {
 
-      // render note count
-      countSpan.innerHTML = state.notes.length;
 
       var noteUi = document.createElement('div')
       noteUi.classList.add("note-fields");
@@ -96,8 +101,10 @@ const notes = (function(){
     inlineNoteUi.classList.add("inline-note");
     inlineNoteUi.id = item.id + "-comment";
     inlineNoteUi.innerHTML =
-      `<textarea data-noteId="${item.id}" class="note-field" placeholder="Add your note here...">${item.content}</textarea>
-      <button data-noteId="${item.id}" class="button-standard delete-note">Delete</button>`
+      `<fieldset>
+        <textarea data-noteId="${item.id}" class="note-field" placeholder="Add your comment here...">${item.content}</textarea>
+        <button data-noteId="${item.id}" class="button-standard delete-note">Delete</button>
+      </fieldset>`
 
     selectionWrapper.after(inlineNoteUi)
 
@@ -112,11 +119,6 @@ const notes = (function(){
     document.querySelector(`#${id}-comment textarea`).focus();
   }
 
-
-  //
-  // var viewNotesFromDialogue = function () {
-  //   clearAddToNotesDialogue();
-  // }
 
   /**
    * Add a note to state
@@ -134,7 +136,7 @@ const notes = (function(){
       content: "",
     }
 
-    state.notes = state.notes.concat(newNote);
+    state.set('notes', state.notes.concat(newNote));
 
     renderNotes()
 
@@ -148,9 +150,9 @@ const notes = (function(){
    * @param {String} id the id of the note to delete
    */
   function deleteNote(id) {
-    state.notes = state.notes.filter(function(note) {
+    state.set("notes", state.notes.filter(function(note) {
       return id != note.id;
-    })
+    }))
 
     // Replace the whole wrapper with its own contents
     var wrapper = document.getElementById(id);
@@ -180,11 +182,14 @@ const notes = (function(){
    */
   var handleNoteChange = function (event) {
 
-    const index = state.notes.findIndex(function(note) {
-      return note.id == event.target.getAttribute('data-noteId')
+    const notes = state.notes.map(function(note) {
+      if (note.id == event.target.getAttribute('data-noteId')) {
+        note.content = event.target.value
+      }
+      return note
     });
 
-    state.notes[index].content = event.target.value;
+    state.set("notes", notes)
 
     renderNotes()
   }
@@ -199,15 +204,9 @@ const notes = (function(){
 
     addNote(selection, selectedText, range);
 
-    // update text in the popover
-    document.querySelector('.selected-add-note-dialogue').innerHTML =
-    'Note added <button class="clear-notes-dialogue button-standard">×</button>';
+    clearAddToNotesDialogue()
 
     clearDocumentSelection()
-
-    setTimeout(function() {
-      clearAddToNotesDialogue()
-    }, 2000)
 
   }
 
@@ -295,20 +294,37 @@ const notes = (function(){
       deleteNote(id);
     });
 
-    events.on('keyup', '.note-field', function (event) {
+    events.on('input', '.note-field', function (event) {
       event.preventDefault()
       handleNoteChange(event);
+
+      var textarea = event.target;
+      var offset = textarea.offsetHeight - textarea.clientHeight + 12;
+
+      textarea.style.height = 'auto';
+      textarea.style.height = textarea.scrollHeight + offset + 'px';
     });
 
     events.on('mouseup', '#content', function (event) {
       event.preventDefault()
-      if (window.getSelection().type === "Range") {
-          clearAddToNotesDialogue()
-          generateAddToNotesDialogue(event)
+
+      if (
+        window.getSelection().type === "Range"
+        //&& window.getSelection().getRangeAt(0).commonAncestorContainer.childNodes.length == 0
+      ) {
+        console.log(window.getSelection().getRangeAt(0).commonAncestorContainer.childNodes.length)
+        clearAddToNotesDialogue()
+        generateAddToNotesDialogue(event)
       } else if (document.selection) {
-          console.log(document.selection.createRange().text);
+        console.log(document.selection.createRange().text);
       }
+
+      return;
+
+
     });
+
+    renderNotes()
   }
 
   //expose vars

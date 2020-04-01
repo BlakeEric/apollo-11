@@ -396,10 +396,26 @@ header div {
   padding: .5rem;
   border-radius: 3px;
   border: 1px solid lightgray;
+  cursor: pointer;
 }
 
-.sidebar-buttonGroup button:disabled {
+.sidebar-buttonGroup button.download-studyGuide {
+  background: #00ffcf;
+  color: black;
+  border-color: #00d6ae;
+  margin-top: 1rem;
+}
+
+.sidebar-buttonGroup button.download-studyGuide:hover,
+.sidebar-buttonGroup button.download-studyGuide:focus {
+  background: #00d6ae;
+  border-color: #00d6ae;
+}
+
+.sidebar-buttonGroup button:disabled,
+.sidebar-buttonGroup button.download-studyGuide:disabled {
   background: gray;
+  color: white;
   cursor: not-allowed;
 }
 
@@ -505,10 +521,40 @@ main span.highlighted {
 */
 
 .inline-note {
-  position: absolute;
-  right: .5rem;
+  position: relative;
+  display: block;
   width: 330px;
+  max-width: 100%;
 }
+
+.inline-note fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+@media screen and (min-width: 1000px) {
+  .inline-note {
+    position: absolute;
+    right: .5rem;
+    max-width: 20%;
+  }
+
+  .inline-note fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    position: relative;
+    bottom: 50px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .inline-note {
+    max-width: 330px;
+  }
+}
+
 
 .inline-note textarea {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
@@ -516,14 +562,18 @@ main span.highlighted {
   border-radius: 3px;
   width: 100%;
   border: 2px solid transparent;
-  padding: .5rem .5rem 0 .5rem;
+  padding: .5rem .5rem .25rem .5rem;
   resize: none;
-  height: 50px;
+  height: 40px;
+  /* max-height: 40px; */
+  /* overflow-y: hidden; */
   font-style: italic;
+  position: relative;
 }
 
 .inline-note button {
-  opacity: 0;
+  display: none;
+  position: relative;
   margin: 0 .5rem;
   background: white;
   border: 1px solid lightgray;
@@ -531,10 +581,16 @@ main span.highlighted {
   border-radius: 3px;
   line-height: 1.5rem;
   font-size: 14px;
+  z-index: 1;
 }
 
-.inline-note:hover button, .inline-note textarea:focus+button {
-  opacity: 1;
+.inline-note fieldset:hover, .inline-note textarea:focus {
+  z-index: 4000;
+}
+
+.inline-note fieldset:hover > button, .inline-note textarea:focus+button {
+  display: inline-block;
+  z-index: 4000;
 }
 
 .inline-note button:hover,
@@ -546,13 +602,15 @@ main span.highlighted {
   cursor: pointer;
 }
 
-.inline-note:hover textarea {
+.inline-note fieldset:hover textarea {
   cursor: pointer;
   border: 2px solid lightgray;
 }
 
 .inline-note textarea:focus {
   border: 2px solid #00ffcf;
+  /* max-height: 300px; */
+  /* overflow-y: auto; */
 }
 
 
@@ -595,7 +653,7 @@ main span.highlighted {
   display: block !important;
 }
 
-#notesSummary-window textarea {
+/* #notesSummary-window textarea {
   width: 100%;
   display: block;
   margin: .5rem 0;
@@ -603,7 +661,7 @@ main span.highlighted {
   border-radius: 3px;
   border: 2px solid lightgray;
   box-shadow: none;
-}
+} */
 #notesSummary-window .note-fields {
   margin-bottom: 1rem;
 }
