@@ -30,7 +30,11 @@ const state = (function(){
   var downloadPDF = function() {
     var data = {
       queue: state.queue.map(function(item) {
-        return {id: item.id, src: item.media.currentSrc}
+        return {
+          id: item.id,
+          description: item.description,
+          src: item.media.currentSrc
+        }
       }),
       notes: state.notes
     }

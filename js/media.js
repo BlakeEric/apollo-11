@@ -124,6 +124,7 @@ const media = (function(){
     var item = {
       id,
       media: state.mediaData[id].querySelector("audio, video"),
+      description: state.mediaData[id].querySelector('figcaption').innerHTML.trim()
     }
 
     // Add to queue array
