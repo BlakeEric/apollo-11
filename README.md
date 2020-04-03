@@ -28,5 +28,8 @@ Content is accessible without JavaScript and features are added using the progre
 <br/>
 <img src="./img/generate.png" width="300" alt="Generate button" />
 
-
 __[View now](https://apollo-11.now.sh/)__
+
+## To do:
+* add event handlers for text highlight on mobile devices
+* scroll window to center note textarea on edit
