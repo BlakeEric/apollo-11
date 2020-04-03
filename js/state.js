@@ -36,7 +36,12 @@ const state = (function(){
           src: item.media.currentSrc
         }
       }),
-      notes: state.notes
+      notes: state.notes.map(function(note) {
+        return {
+          content: note.content,
+          selectiontext: note.selectiontext
+        }
+      })
     }
 
     fetch("https://apollo-11-api.herokuapp.com/",
