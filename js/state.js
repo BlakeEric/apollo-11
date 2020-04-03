@@ -37,9 +37,10 @@ const state = (function(){
         }
       }),
       notes: state.notes.map(function(note) {
+        console.log(note)
         return {
           content: note.content,
-          selectiontext: note.selectiontext
+          selectionText: note.selectionText.trim()
         }
       })
     }
