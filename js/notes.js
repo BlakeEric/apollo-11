@@ -114,7 +114,7 @@ const notes = (function(){
    * Focus on a note textarea
    * @param {String} id the id of the note
   */
-  function editNote(id) {
+  var editNote = function (id) {
     document.getElementById("notesSummary-window").classList.remove("active");
     document.querySelector(`#${id}-comment textarea`).focus();
   }
@@ -126,7 +126,7 @@ const notes = (function(){
    * @param {String} selectionText the optional DOM selection object
    * @param {Object} range the selection range object
    */
-  var addNote = function(selection, selectionText, range) {
+  var addNote = function (selection, selectionText, range) {
 
     const newNote = {
       id: "note-" + ID(),
