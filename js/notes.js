@@ -198,31 +198,22 @@ const notes = (function(){
    * Create a new note from the selected text
    */
   var copySelectedToNote = function () {
-    var selection = window.getSelection();
+    clearAddToNotesDialogue()
+
+    var selection = getCurrentSelection()
+
     var selectedText = selection.toString();
     var range = selection.getRangeAt(0);
 
     addNote(selection, selectedText, range);
-
-    clearAddToNotesDialogue()
-
     clearDocumentSelection()
-
   }
 
   /**
    * Unselect highlighted text
    */
   var clearDocumentSelection = function () {
-    if (window.getSelection) {
-      if (window.getSelection().empty) {  // Chrome
-        window.getSelection().empty();
-      } else if (window.getSelection().removeAllRanges) {  // Firefox
-        window.getSelection().removeAllRanges();
-      }
-    } else if (document.selection) {  // IE?
-      document.selection.empty();
-    }
+    rangy.getSelection().collapseToEnd();
   }
 
   /**
@@ -254,6 +245,27 @@ const notes = (function(){
   */
   var toggleNotesSummary = function() {
     notesSummaryContainer.classList.toggle('active')
+  }
+
+
+  /**
+   * Get the current Rangy selection object
+   * @returns {Object} the Rangy selection object, or null if no text selected
+   *                   or text spans multiple nodes
+   */
+  var getCurrentSelection = function() {
+    var selection = rangy.getSelection()
+    selection.refresh();
+
+    var selectedText = selection.toString();
+    var range = selection.getRangeAt(0);
+
+    if (!range.canSurroundContents() || selectedText.length < 1) {
+      return null;
+    }
+
+    return(selection)
+
   }
 
 
@@ -306,21 +318,10 @@ const notes = (function(){
     });
 
     events.on('mouseup', '#content', function (event) {
-      event.preventDefault()
-
-      if (
-        window.getSelection().type === "Range"
-        //&& window.getSelection().getRangeAt(0).commonAncestorContainer.childNodes.length == 0
-      ) {
-        console.log(window.getSelection().getRangeAt(0).commonAncestorContainer.childNodes.length)
-        clearAddToNotesDialogue()
+      clearAddToNotesDialogue()
+      if (getCurrentSelection()) {
         generateAddToNotesDialogue(event)
-      } else if (document.selection) {
-        console.log(document.selection.createRange().text);
       }
-
-      return;
-
 
     });
 

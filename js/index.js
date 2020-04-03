@@ -6,6 +6,7 @@ function init() {
   });
   document.querySelector('body').classList.add('js-enabled');
 
+  rangy.init();
   state.init();
   nav.init();
   media.init();
