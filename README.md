@@ -10,18 +10,23 @@ Content is accessible without JavaScript and features are added using the progre
 ### Using the app
 
 1) Highlight important text to create a note
-![Highlighting text](./img/highlight.png "Highlighting text")
+<img src="./img/highlight.png" width="400" alt="Highlighting text" />
 
 2) Add, comments, questions, or ideas related to the highlighted text
-![Comments](./img/comment.png "Comments")
+<br/>
+<img src="./img/comment.png" width="500" alt="Comments" />
 
 3) Select media to add to the queue.
-![Selecting media](./img/media-click.png "Selecting media")
+<br/>
+<img src="./img/media-click.png" width="400" alt="Selecting media" />
 
 4) Play, pause and replay important media.
-![Media queue](./img/media-queue.png "Media queue")
+<br/>
+<img src="./img/media-queue.png" width="300" alt="Media queue" />
 
 5) Download a custom PDF study guide including your comments and links to media.
-![Generate button](./img/generate.png "Generate button")
+<br/>
+<img src="./img/generate.png" width="300" alt="Generate button" />
+
 
 __[View now](https://apollo-11.now.sh/)__
