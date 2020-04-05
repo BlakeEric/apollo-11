@@ -131,7 +131,7 @@ const notes = (function(){
     const newNote = {
       id: "note-" + ID(),
       selection: selection ? selection : null,
-      selectionText: selectionText.trim().replace(/(\r\n|\n|\r)/gm," "),
+      selectionText: selectionText.trim().replace(/(\r\n|\n|\r)/gm," ").replace(/\s+/g," "),
       range: range,
       content: "",
     }
