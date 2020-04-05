@@ -107,7 +107,7 @@ header div {
 .header-imageWrap {
   height: 100%;
   min-height: 300px;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/98/Aldrin_Apollo_11_original.jpg');
+  background-image: url('https://res.cloudinary.com/hwm0fktg3/image/upload/v1586051408/apollo-11/Aldrin_Apollo_11_original.jpg');
   background-size: 100% auto;
   background-position: top center;
 }
