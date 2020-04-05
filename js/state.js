@@ -40,7 +40,7 @@ const state = (function(){
         console.log(note)
         return {
           content: note.content,
-          selectionText: note.selectionText.trim()
+          selectionText: note.selectionText
         }
       })
     }

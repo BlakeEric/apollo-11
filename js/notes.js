@@ -60,7 +60,7 @@ const notes = (function(){
       noteUi.classList.add("note-fields");
 
       noteUi.innerHTML =
-        `<label>${item.selectionText.trim()}</label>`;
+        `<label>${item.selectionText}</label>`;
 
       if (item.content) {
         noteUi.innerHTML += `<p data-noteId="${item.id}">${item.content}</p>`;
@@ -131,7 +131,7 @@ const notes = (function(){
     const newNote = {
       id: "note-" + ID(),
       selection: selection ? selection : null,
-      selectionText: selectionText,
+      selectionText: selectionText.trim().replace(/(\r\n|\n|\r)/gm," "),
       range: range,
       content: "",
     }
