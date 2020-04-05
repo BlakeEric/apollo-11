@@ -1,8 +1,8 @@
 # Apollo 11
 
-An accessible, interactive, prototype built vanilla JS.
+An exploration in accessible, immersive content using only vanilla JavaScript (no frameworks here 🔨!). 
 
-Content is accessible without JavaScript and features are added using the progressive enhancement paradigm.
+Content is accessible even without JavaScript and features are added using the progressive enhancement paradigm.
 
 * __[View live app](https://apollo-11.now.sh/)__
 * __[View server repo](https://github.com/BlakeEric/apollo-11-api)__
