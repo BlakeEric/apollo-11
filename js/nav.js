@@ -1,70 +1,67 @@
-const nav = (function(){
+"use strict";
 
+var nav = function () {
   var navContainer = document.getElementById("sidebar-wrap");
-
   var isActive = false;
 
   /**
    * add appropriate classes to body element and sidebar container
    * depending on whether sidebar is active
   */
-  var setClasses = function() {
+  var setClasses = function setClasses() {
     if (isActive) {
-      navContainer.classList.add('active')
+      navContainer.classList.add('active');
       document.body.classList.add('no-scroll');
     } else {
-      navContainer.classList.remove('active')
+      navContainer.classList.remove('active');
       document.body.classList.remove('no-scroll');
     }
-  }
+  };
 
   /**
    * Open the mobile nav
   */
-  var open = function() {
+  var open = function open() {
     isActive = true;
-    setClasses()
-  }
+    setClasses();
+  };
 
   /**
    * Close the mobile nav
   */
-  var close = function() {
+  var close = function close() {
     isActive = false;
-    setClasses()
-  }
+    setClasses();
+  };
 
   /**
    * Close the mobile nav if open, and vice versa
   */
-  var toggle = function() {
+  var toggle = function toggle() {
     isActive = !isActive;
-    setClasses()
-  }
+    setClasses();
+  };
 
   /**
    * Initialize event handlers and scrollspy
   */
-  var init = function() {
+  var init = function init() {
     //enable scrollspy
-    var spy = new Gumshoe('#tableOfContents a');
+    var spy = new Gumshoe('#tableOfContents a'); //enable event handlers
 
-    //enable event handlers
     events.on('click', '#mobile-nav-toggle, #mobile-nav-toggle *', function (event) {
       nav.toggle();
     });
-
     events.on('click', '#tableOfContents a', function (event) {
       nav.close();
     });
-  }
+  };
 
   // expose variables
   return {
-    toggle,
-    open,
-    close,
-    init
+    toggle: toggle,
+    open: open,
+    close: close,
+    init: init
   };
-
-}());
+}();

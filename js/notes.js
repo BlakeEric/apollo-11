@@ -1,4 +1,6 @@
-const notes = (function(){
+"use strict";
+
+var notes = function () {
 
   // Initialize vars
   var notesSummaryContainer = document.getElementById("notesSummary-window");
@@ -8,39 +10,31 @@ const notes = (function(){
    * display popover with buttons
    * @param {Object} event the mouseup or onselect end event object
   */
-  var generateAddToNotesDialogue = function (event) {
-
+  var generateAddToNotesDialogue = function generateAddToNotesDialogue(event) {
     // Get coordinates
     var scroll = document.documentElement.scrollTop || document.body.scrollTop;
     var x = event.clientX - 50;
-    var y = event.clientY + scroll - 70;
+    var y = event.clientY + scroll - 70; // Create the dialogue
 
-    // Create the dialogue
     var span = document.createElement('span');
-
     span.classList.add("selected-add-note-dialogue");
-    span.innerHTML =
-    '<strong>Add note?</strong><br/>\
+    span.innerHTML = '<strong>Add note?</strong><br/>\
     <button class="button-standard copy-selected-to-note">Add</button>\
-    <button class="button-standard clear-notes-dialogue">×</button>';
+    <button class="button-standard clear-notes-dialogue">×</button>'; // position the dialogue at where the user clicked
 
-    // position the dialogue at where the user clicked
     span.style.position = "absolute";
     span.style.top = y.toString() + "px";
-    span.style.left = x.toString() + "px";
+    span.style.left = x.toString() + "px"; // add it to the div
 
-    // add it to the div
     document.body.appendChild(span);
-  }
+  };
 
   /**
    * Display notes in popup container and along side main text
   */
-  var renderNotes = function () {
+  var renderNotes = function renderNotes() {
+    state.toggleStudyGuideDownloadButton(); // render note count
 
-    state.toggleStudyGuideDownloadButton()
-
-    // render note count
     countSpan.innerHTML = state.notes.length;
 
     if (state.notes.length === 0) {
@@ -49,76 +43,55 @@ const notes = (function(){
       document.getElementById('notes-summary-toggle').removeAttribute('disabled');
     }
 
-
     var container = document.getElementById('notesSummary-window-currentNotes');
     container.innerHTML = '';
-
-    state.notes.forEach(function(item) {
-
-
-      var noteUi = document.createElement('div')
+    state.notes.forEach(function (item) {
+      var noteUi = document.createElement('div');
       noteUi.classList.add("note-fields");
-
-      noteUi.innerHTML =
-        `<label>${item.selectionText}</label>`;
+      noteUi.innerHTML = "<label>".concat(item.selectionText, "</label>");
 
       if (item.content) {
-        noteUi.innerHTML += `<p data-noteId="${item.id}">${item.content}</p>`;
+        noteUi.innerHTML += "<p data-noteId=\"".concat(item.id, "\">").concat(item.content, "</p>");
       } else {
-        noteUi.innerHTML += `<br/><a href="#" class="edit-note" data-noteId="${item.id}">Add a note about this</a>`;
+        noteUi.innerHTML += "<br/><a href=\"#\" class=\"edit-note\" data-noteId=\"".concat(item.id, "\">Add a note about this</a>");
       }
 
-      container.appendChild(noteUi)
+      container.appendChild(noteUi);
+      if (document.getElementById(item.id)) return; // If it doesn't exist already render inline note UI
 
-      if (document.getElementById(item.id)) return;
-
-      // If it doesn't exist already render inline note UI
       renderInlineNote(item);
-
-    })
-
-  }
-
+    });
+  };
 
   /**
    * Focus on a note textarea
    * @param {Object} item the note object from state
   */
   function renderInlineNote(item) {
-
     // Render the inline note in content if it wasn't rendered already
-    var selectionWrapper = document.createElement('span')
+    var selectionWrapper = document.createElement('span');
     selectionWrapper.id = item.id;
-    selectionWrapper.classList.add('highlighted')
-    selectionWrapper.innerHTML = item.selectionText;
+    selectionWrapper.classList.add('highlighted');
+    selectionWrapper.innerHTML = item.selectionText; // Surround selection with a span
 
-    // Surround selection with a span
     var range = item.range;
-    range.surroundContents(selectionWrapper)
+    range.surroundContents(selectionWrapper); // Add the note textarea
 
-    // Add the note textarea
-    var inlineNoteUi = document.createElement('div')
+    var inlineNoteUi = document.createElement('div');
     inlineNoteUi.classList.add("inline-note");
     inlineNoteUi.id = item.id + "-comment";
-    inlineNoteUi.innerHTML =
-      `<fieldset>
-        <textarea data-noteId="${item.id}" class="note-field" placeholder="Add your comment here...">${item.content}</textarea>
-        <button data-noteId="${item.id}" class="button-standard delete-note">Delete</button>
-      </fieldset>`
-
-    selectionWrapper.after(inlineNoteUi)
-
+    inlineNoteUi.innerHTML = "<fieldset>\n        <textarea data-noteId=\"".concat(item.id, "\" class=\"note-field\" placeholder=\"Add your comment here...\">").concat(item.content, "</textarea>\n        <button data-noteId=\"").concat(item.id, "\" class=\"button-standard delete-note\">Delete</button>\n      </fieldset>");
+    selectionWrapper.after(inlineNoteUi);
   }
 
   /**
    * Focus on a note textarea
    * @param {String} id the id of the note
   */
-  var editNote = function (id) {
+  var editNote = function editNote(id) {
     document.getElementById("notesSummary-window").classList.remove("active");
-    document.querySelector(`#${id}-comment textarea`).focus();
-  }
-
+    document.querySelector("#".concat(id, "-comment textarea")).focus();
+  };
 
   /**
    * Add a note to state
@@ -126,50 +99,41 @@ const notes = (function(){
    * @param {String} selectionText the optional DOM selection object
    * @param {Object} range the selection range object
    */
-  var addNote = function (selection, selectionText, range) {
-
-    const newNote = {
+  var addNote = function addNote(selection, selectionText, range) {
+    var newNote = {
       id: "note-" + ID(),
       selection: selection ? selection : null,
-      selectionText: selectionText.trim().replace(/(\r\n|\n|\r)/gm," ").replace(/\s+/g," "),
+      selectionText: selectionText.trim().replace(/(\r\n|\n|\r)/gm, " ").replace(/\s+/g, " "),
       range: range,
-      content: "",
-    }
-
+      content: ""
+    };
     state.set('notes', state.notes.concat(newNote));
-
-    renderNotes()
-
+    renderNotes();
     editNote(newNote.id);
-
-  }
-
+  };
 
   /**
    * Delete a note from state and remove from UI
    * @param {String} id the id of the note to delete
    */
   function deleteNote(id) {
-    state.set("notes", state.notes.filter(function(note) {
+    state.set("notes", state.notes.filter(function (note) {
       return id != note.id;
-    }))
+    })); // Replace the whole wrapper with its own contents
 
-    // Replace the whole wrapper with its own contents
     var wrapper = document.getElementById(id);
-    wrapper.outerHTML = wrapper.innerHTML;
+    wrapper.outerHTML = wrapper.innerHTML; // Remove the textarea
 
-    // Remove the textarea
     var noteEditorElem = document.getElementById(id + "-comment");
     noteEditorElem.parentNode.removeChild(noteEditorElem);
-
-    renderNotes()
+    renderNotes();
   }
 
   /**
    * Generate a random id
    * @returns {String} the generated id
    */
-   var ID = function () {
+  var ID = function ID() {
     // Math.random should be unique because of its seeding algorithm.
     // Convert it to base 36 (numbers + letters), and grab the first 9 characters
     // after the decimal.
@@ -180,83 +144,77 @@ const notes = (function(){
    * Delete a note from state and remove from UI
    * @param {Object} event the onkeyup event object from the
    */
-  var handleNoteChange = function (event) {
-
-    const notes = state.notes.map(function(note) {
+  var handleNoteChange = function handleNoteChange(event) {
+    var notes = state.notes.map(function (note) {
       if (note.id == event.target.getAttribute('data-noteId')) {
-        note.content = event.target.value
+        note.content = event.target.value;
       }
-      return note
+
+      return note;
     });
-
-    state.set("notes", notes)
-
-    renderNotes()
-  }
+    state.set("notes", notes);
+    renderNotes();
+  };
 
   /**
    * Create a new note from the selected text
    */
-  var copySelectedToNote = function () {
-    clearAddToNotesDialogue()
-
-    var selection = getCurrentSelection()
-
+  var copySelectedToNote = function copySelectedToNote() {
+    clearAddToNotesDialogue();
+    var selection = getCurrentSelection();
     var selectedText = selection.toString();
     var range = selection.getRangeAt(0);
-
     addNote(selection, selectedText, range);
-    clearDocumentSelection()
-  }
+    clearDocumentSelection();
+  };
 
   /**
    * Unselect highlighted text
    */
-  var clearDocumentSelection = function () {
+  var clearDocumentSelection = function clearDocumentSelection() {
     rangy.getSelection().collapseToEnd();
-  }
+  };
 
   /**
    * remove popover from DOM
   */
-  var clearAddToNotesDialogue = function () {
+  var clearAddToNotesDialogue = function clearAddToNotesDialogue() {
     var popover = document.querySelector('.selected-add-note-dialogue');
+
     if (popover) {
       popover.parentNode.removeChild(popover);
     }
-  }
+  };
 
   /**
    * Open the notes summary popover
   */
-  var openNotesSummary = function() {
-    notesSummaryContainer.classList.add('active')
-  }
+  var openNotesSummary = function openNotesSummary() {
+    notesSummaryContainer.classList.add('active');
+  };
 
   /**
    * Close the notes summary popover
   */
-  var closeNotesSummary = function() {
-    notesSummaryContainer.classList.remove('active')
-  }
+  var closeNotesSummary = function closeNotesSummary() {
+    notesSummaryContainer.classList.remove('active');
+  };
 
   /**
    * Close the notes summary popover if open, and vice versa
   */
-  var toggleNotesSummary = function() {
-    notesSummaryContainer.classList.toggle('active')
-  }
-
+  var toggleNotesSummary = function toggleNotesSummary() {
+    notesSummaryContainer.classList.toggle('active');
+  };
 
   /**
    * Get the current Rangy selection object
    * @returns {Object} the Rangy selection object, or null if no text selected
    *                   or text spans multiple nodes
    */
-  var getCurrentSelection = function() {
-    var selection = rangy.getSelection()
+  var getCurrentSelection = function getCurrentSelection() {
+    var selection = rangy.getSelection();
     selection.refresh();
-
     var selectedText = selection.toString();
     var range = selection.getRangeAt(0);
 
@@ -264,73 +222,60 @@ const notes = (function(){
       return null;
     }
 
-    return(selection)
-
-  }
-
+    return selection;
+  };
 
   /**
    * Initialize event handlers
   */
-  var init = function () {
+  var init = function init() {
     events.on('click', '.copy-selected-to-note', function (event) {
-      event.preventDefault()
+      event.preventDefault();
       copySelectedToNote();
     });
-
     events.on('click', '.clear-notes-dialogue', function (event) {
-      event.preventDefault()
+      event.preventDefault();
       clearAddToNotesDialogue();
     });
-
     events.on('click', '.notes-summary-toggle', function (event) {
-      event.preventDefault()
+      event.preventDefault();
       toggleNotesSummary();
     });
-
     events.on('click', '.note-fields > p, a.edit-note', function (event) {
-      event.preventDefault()
-      var id = event.target.getAttribute('data-noteId')
+      event.preventDefault();
+      var id = event.target.getAttribute('data-noteId');
       editNote(id);
     });
-
     events.on('click', 'span.highlighted', function (event) {
-      event.preventDefault()
-      var id = event.target.getAttribute('id')
+      event.preventDefault();
+      var id = event.target.getAttribute('id');
       editNote(id);
     });
-
     events.on('click', '.delete-note', function (event) {
-      event.preventDefault()
-      var id = event.target.getAttribute('data-noteId')
+      event.preventDefault();
+      var id = event.target.getAttribute('data-noteId');
       deleteNote(id);
     });
-
     events.on('input', '.note-field', function (event) {
-      event.preventDefault()
+      event.preventDefault();
       handleNoteChange(event);
-
       var textarea = event.target;
       var offset = textarea.offsetHeight - textarea.clientHeight + 12;
-
       textarea.style.height = 'auto';
       textarea.style.height = textarea.scrollHeight + offset + 'px';
     });
-
     events.on('mouseup', '#content', function (event) {
-      clearAddToNotesDialogue()
+      clearAddToNotesDialogue();
+
       if (getCurrentSelection()) {
-        generateAddToNotesDialogue(event)
+        generateAddToNotesDialogue(event);
       }
-
     });
-
-    renderNotes()
-  }
+    renderNotes();
+  };
 
   //expose vars
   return {
-    init
-  }
-
-}());
+    init: init
+  };
+}();
