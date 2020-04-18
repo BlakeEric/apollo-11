@@ -51,9 +51,16 @@ var notes = function () {
       noteUi.innerHTML = "<label>".concat(item.selectionText, "</label>");
 
       if (item.content) {
-        noteUi.innerHTML += "<p data-noteId=\"".concat(item.id, "\">").concat(item.content, "</p>");
+        noteUi.innerHTML +=
+        "<p data-noteId='" + item.id + ">" +
+          item.content +
+        "</p>"
       } else {
-        noteUi.innerHTML += "<br/><a href=\"#\" class=\"edit-note\" data-noteId=\"".concat(item.id, "\">Add a note about this</a>");
+        noteUi.innerHTML +=
+        "<br/>" +
+        "<a href='#' class='edit-note' data-noteId='" + item.id + "'>" +
+          "Add a note about this" +
+        "</a>"
       }
 
       container.appendChild(noteUi);
@@ -80,7 +87,15 @@ var notes = function () {
     var inlineNoteUi = document.createElement('div');
     inlineNoteUi.classList.add("inline-note");
     inlineNoteUi.id = item.id + "-comment";
-    inlineNoteUi.innerHTML = "<fieldset>\n        <textarea data-noteId=\"".concat(item.id, "\" class=\"note-field\" placeholder=\"Add your comment here...\">").concat(item.content, "</textarea>\n        <button data-noteId=\"").concat(item.id, "\" class=\"button-standard delete-note\">Delete</button>\n      </fieldset>");
+    inlineNoteUi.innerHTML =
+    "<fieldset>" +
+      "<textarea data-noteId='" + item.id + "' class='note-field' placeholder='Add your comment here...'>" +
+        item.content +
+      "</textarea>" +
+      "<button data-noteId='" + item.id + "' class='button-standard delete-note'>" +
+        "Delete" +
+      "</button>" +
+    "</fieldset>";
     selectionWrapper.after(inlineNoteUi);
   }
 
@@ -90,7 +105,11 @@ var notes = function () {
   */
   var editNote = function editNote(id) {
     document.getElementById("notesSummary-window").classList.remove("active");
-    document.querySelector("#".concat(id, "-comment textarea")).focus();
+
+    // fix chrome bug where focus doesn't work
+    setTimeout(function() {
+      document.querySelector("#" + id + "-comment textarea").focus();
+    }, 0);
   };
 
   /**
