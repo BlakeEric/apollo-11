@@ -106,10 +106,17 @@ var notes = function () {
   var editNote = function editNote(id) {
     document.getElementById("notesSummary-window").classList.remove("active");
 
-    // fix chrome bug where focus doesn't work
+    var target = document.querySelector("#" + id + "-comment textarea");
+    var offset = window.pageYOffset + target.getBoundingClientRect().top - 100;
+
+    smoothScroll.animateScroll(offset, 0, {
+      speed: 300,
+      speedAsDuration: true,
+    });
+
     setTimeout(function() {
-      document.querySelector("#" + id + "-comment textarea").focus();
-    }, 0);
+      target.focus();
+    }, 400);
   };
 
   /**
