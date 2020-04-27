@@ -19,6 +19,7 @@
         <h2>An exploration in accessible, interactive content with vanilla JavaScript.</h2>
         <p>Content and images from <a href="https://en.wikipedia.org/wiki/Apollo_11">Wikipedia</a></p>
         <a class="screen_reader_only" href="#content">Skip to content</a>
+        <button class="header-button tour-toggle">View directions</button>
       </div>
       <div class="header-imageWrap">
       </div>
@@ -55,9 +56,6 @@
           <span class="count" id="media-count">0</span>
           <p id="queue-instructions" class="sidebar-sectionInstructions">Click on media to add...</p>
           <div id="queue"></div>
-          <!-- <div class="sidebar-buttonGroup">
-            <button id="download-media" disabled="disabled">Download</button>
-          </div> -->
         </section>
 
         <section class="js-only" style="display: none;" aria-label="Generate a stidy guide">
@@ -69,6 +67,38 @@
       </aside>
     </div>
     <!-- End sidebar -->
+
+    <!-- App directions -->
+    <section id="tour-window" class="tour-window" style="display: none;" aria-labelledby="tour-window-title">
+      <button class="tour-close button-standard">×</button>
+      <h2>Using the app:</h2>
+      <p>
+        1) Highlight important text to create a note
+        <img src="./dist/img/highlight.png" width="400" alt="Highlighting text" />
+      </p>
+      <p>
+        2) Add, comments, questions, or ideas related to the highlighted text
+        <br/>
+        <img src="./dist/img/comment.png" width="500" alt="Comments" />
+      </p>
+      <p>
+        3) Select media to add to the queue.
+        <br/>
+        <img src="./dist/img/media-click.png" width="400" alt="Selecting media" />
+      </p>
+      <p>
+        4) Play, pause and replay important media.
+        <br/>
+        <img src="./dist/img/media-queue.png" width="200" alt="Media queue" />
+      </p>
+      <p>
+        5) Download a custom PDF study guide including your comments and links to media.
+        <br/>
+        <img src="./dist/img/generate.png" width="200" alt="Generate button" />
+        <button class="tour-close button-standard button-center">Got it</button>
+      </p>
+
+    </section>
 
     <!-- Toggle sidebar button -->
     <button id="mobile-nav-toggle" class="js-only button-standard" style="display: none;">
@@ -321,6 +351,7 @@
   <script src="dist/js/nav.min.js"></script>
   <script src="dist/js/media.min.js"></script>
   <script src="dist/js/notes.min.js"></script>
+  <script src="dist/js/tour.min.js"></script>
   <script src="dist/js/index.min.js"></script>
 
 </body>
